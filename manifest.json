@@ -1,0 +1,28 @@
+{
+  "name": "FB Photo Album Downloader",
+  "version": "1.0.2",
+  "manifest_version": 2,
+  
+  "description": "A handy tool to download photos from your facebook albums or your friends' albums in a single click.",
+  "icons": { "16": "images/icon16.png",
+             "48": "images/icon48.png",
+            "128": "images/icon128.png" },
+
+	"background": {
+	  "page": "background.html"
+	},
+	"content_scripts": [
+    {
+      "matches": ["http://www.facebook.com/*","https://www.facebook.com/*"],
+	  "js": ["js/jquery-1.7.2.min.js", "js/jquery.livequery.min.js", "js/script.js"]
+    }
+  ],
+  
+  "offline_enabled": false,
+  
+  "permissions": ["tabs", "experimental", "http://*/*", "https://*/*"],
+  
+  "web_accessible_resources": [
+    "images/tick.png"
+  ]
+}
