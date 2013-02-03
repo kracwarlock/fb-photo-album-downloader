@@ -9,7 +9,7 @@ chrome.extension.onRequest.addListener(
 				if(request.arr[i].indexOf('spacer') == -1)
 				{
 					console.log(request.arr[i]);
-					chrome.experimental.downloads.download({"url":request.arr[i]});
+					chrome.downloads.download({"url":request.arr[i]});
 					console.log(chrome.extension.lastError);
 				}
 			}
