@@ -3,12 +3,11 @@ $("#album_photos_pagelet").livequery(function(){
 	link.setAttribute('href', 'mypage.htm');
 	link.setAttribute('id', 'fbalbdlbut');
 	link.setAttribute('href', '#');
-	link.setAttribute('style', 'float:left;color:#000;background:#fff;margin:5px;padding:5px');
-	document.getElementById('headNav').appendChild(link);
+	link.setAttribute('style', 'color:#000;background:rgb(214,214,214);margin:5px;padding:5px;position:relative;border:1px solid black;text-decoration:none');
+	document.getElementsByClassName('fbPhotoAlbumHeader')[0].insertBefore(link, document.getElementsByClassName('fbPhotoAlbumOptionsLeft')[0].nextSibling);
 	document.getElementById('fbalbdlbut').innerText='Download Album';
 	
 	document.getElementById('fbalbdlbut').addEventListener("click", function() {
-			console.log("click");
 			var dlarray = new Array(album_photos_pagelet.getElementsByTagName('i').length);
 			for(i=0;i<album_photos_pagelet.getElementsByTagName('i').length;i++)
 			{
@@ -17,6 +16,7 @@ $("#album_photos_pagelet").livequery(function(){
 					var thumburl = album_photos_pagelet.getElementsByTagName('i')[i].style.background;
 					thumburl = thumburl.substring(4, thumburl.length-1);
 					var dlurl = String(thumburl);
+					dlurl = dlurl.replace("/p206x206","");
 					dlarray[i] = dlurl;
 				}
 			}
